@@ -14,6 +14,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatToolbarModule, MatButtonModule } from "@angular/material" 
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MatToolbarModule, MatButtonModule } from "@angular/material"
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
