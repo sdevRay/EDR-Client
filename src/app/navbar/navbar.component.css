@@ -1,0 +1,14 @@
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+mat-toolbar {
+    font-size: 24px;
+    background-color: black;
+    color: white;
+    text-shadow: 1px 1px red;
+}
+
+i {
+    font-size: 40px;
+}
