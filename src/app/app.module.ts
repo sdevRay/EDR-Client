@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
+import { SignUpComponent } from './landing-page/sign-up/sign-up.component';
 import { LoginComponent } from './landing-page/login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
