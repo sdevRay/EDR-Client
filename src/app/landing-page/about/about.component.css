@@ -1,0 +1,13 @@
+mat-card {
+    float: right;
+    margin: 2em;
+    height: 20em;
+}
+
+mat-card p {
+    line-height: 3em;
+}
+
+mat-card h2 {
+    text-align: center
+}

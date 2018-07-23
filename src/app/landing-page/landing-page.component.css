@@ -3,17 +3,3 @@
     height: 15em;
     width: 100%;
 }
-
-mat-card {
-    float: right;
-    width: 66%;
-    height: 20em;
-}
-
-mat-card p {
-    line-height: 3em;
-}
-
-mat-card h2 {
-    text-align: center
-}
