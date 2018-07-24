@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
+
 import { LandingPageComponent } from './landing-page/landing-page.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
 import { SignUpComponent } from './landing-page/sign-up/sign-up.component';
 import { LoginComponent } from './landing-page/login/login.component';
+
+import { DashGuard } from "./guards/dash.guards"
 
 const routes: Routes = [
     { path: '', redirectTo: '/landingpage/login', pathMatch: 'full' },
@@ -17,7 +20,10 @@ const routes: Routes = [
 
         ]
     },
-    { path: 'dashboard', component: DashboardComponent },
+    {
+        path: 'dashboard', canActivate: [DashGuard],
+        children: [ { path: "", component: DashboardComponent } ]
+    },
     { path: '**', component: PageNotFoundComponent }
 
 ]
