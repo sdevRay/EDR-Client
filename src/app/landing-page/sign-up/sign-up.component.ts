@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
 
 import { 
   FormBuilder, // FormBuilder : Handles creating the form
@@ -15,7 +16,9 @@ export class SignUpComponent implements OnInit {
 
   private signupForm: FormGroup;
 
-  constructor(private form: FormBuilder) { }
+  constructor(private form: FormBuilder, private http: HttpClient) { }
+
+  User: {}
 
   ngOnInit() {
     this.createForm();
@@ -29,8 +32,8 @@ export class SignUpComponent implements OnInit {
     })
   }
 
-  onSubmit() {
-    console.log(this.signupForm.value)
+  onSubmit(User) {
+    return this.http.post('https://localhost:3000/user/create', User).toPromise().then((data) => console.log(data))
   }
 
 }

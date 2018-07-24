@@ -19,7 +19,7 @@ import { MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule }
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import { AddGoalComponent } from './dashboard/events/add-goal/add-goal.component';
+import { HttpClientModule } from '@angular/common/http'
 
 
 @NgModule({
@@ -35,7 +35,7 @@ import { AddGoalComponent } from './dashboard/events/add-goal/add-goal.component
     BaseFitnessComponent,
     PageNotFoundComponent,
     AboutComponent,
-    AddGoalComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -48,7 +48,8 @@ import { AddGoalComponent } from './dashboard/events/add-goal/add-goal.component
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
