@@ -1,4 +1,15 @@
-<p>
-  dashboard works!
-</p>
-<button mat-raised-button color="primary" routerLink='/landingpage'>Back to Landing page</button>
+<mat-grid-list style="border: 1px solid black"cols="12" rowHeight="100%">
+
+  <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
+
+  <mat-grid-tile [colspan]="5" [rowspan]="1">
+    <app-base-fitness></app-base-fitness>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="5" [rowspan]="1">
+    <app-events></app-events>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
+  
+</mat-grid-list>
