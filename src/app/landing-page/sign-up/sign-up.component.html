@@ -1,3 +1,25 @@
-<p>
-  sign-up works!
-</p>
+<mat-card>
+  <h2>Signup.</h2>
+
+  <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
+    <div>
+      <div>
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Email" formControlName="email" type="email" required />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Password" formControlName="password" type="password" required />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password" required />
+        </mat-form-field>
+      </div>
+    </div>
+    <button mat-raised-button class="nav-btn" color="primary" type="submit">Signup</button>
+    <p><a routerLink="/landingpage/login">Login</a></p>
+  </form>
+</mat-card>
