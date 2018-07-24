@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   constructor(private form: FormBuilder) { }
 
   ngOnInit() {
+<<<<<<< HEAD
     this.loginForm = this.form.group({
       email: '',
       password: '',
@@ -25,13 +26,23 @@ export class LoginComponent implements OnInit {
     })
   }
   
+=======
+    this.createForm();
+  }
+>>>>>>> 21cd41df5e86e3671fff03a2ad3edbd560eeffab
   
-  createForm(){
+  
+  createForm(): void {
     this.loginForm = this.form.group({
       email: new FormControl,
       password: new FormControl,
       confirmPassword: new FormControl
     })
+    console.log(this.loginForm.value)
+  }
+
+  
+  onSubmit() {
     console.log(this.loginForm.value)
   }
 
