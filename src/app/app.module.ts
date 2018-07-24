@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SignUpComponent } from './landing-page/sign-up/sign-up.component';
@@ -19,7 +21,9 @@ import { MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule }
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import { AddGoalComponent } from './dashboard/events/add-goal/add-goal.component';
+
+import { SignupService } from "./services/sign-up.service"
+
 
 
 @NgModule({
@@ -35,11 +39,11 @@ import { AddGoalComponent } from './dashboard/events/add-goal/add-goal.component
     BaseFitnessComponent,
     PageNotFoundComponent,
     AboutComponent,
-    AddGoalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
@@ -50,7 +54,7 @@ import { AddGoalComponent } from './dashboard/events/add-goal/add-goal.component
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [SignupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
