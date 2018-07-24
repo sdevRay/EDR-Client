@@ -18,8 +18,13 @@ export class LoginComponent implements OnInit {
   constructor(private form: FormBuilder) { }
 
   ngOnInit() {
+    this.loginForm = this.form.group({
+      email: '',
+      password: '',
+      confirmPassword: ''
+    })
   }
-
+  
   
   createForm(){
     this.loginForm = this.form.group({
@@ -27,6 +32,7 @@ export class LoginComponent implements OnInit {
       password: new FormControl,
       confirmPassword: new FormControl
     })
+    console.log(this.loginForm.value)
   }
 
 }
