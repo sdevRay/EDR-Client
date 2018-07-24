@@ -18,18 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(private form: FormBuilder) { }
 
   ngOnInit() {
-<<<<<<< HEAD
-    this.loginForm = this.form.group({
-      email: '',
-      password: '',
-      confirmPassword: ''
-    })
-  }
-  
-=======
     this.createForm();
   }
->>>>>>> 21cd41df5e86e3671fff03a2ad3edbd560eeffab
   
   
   createForm(): void {
