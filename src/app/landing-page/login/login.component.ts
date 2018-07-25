@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SignupService } from "../../services/sign-up.service"
+
 
 import { 
   FormBuilder, // FormBuilder : Handles creating the form
@@ -15,10 +17,11 @@ export class LoginComponent implements OnInit {
 
   private loginForm: FormGroup;
 
-  constructor(private form: FormBuilder) { }
+  constructor(private form: FormBuilder, private signupService: SignupService) { 
+    this.createForm();
+  }
 
   ngOnInit() {
-    this.createForm();
   }
     
   createForm(): void {
@@ -29,7 +32,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.loginForm.value)
+    this.signupService.login(this.loginForm.value)
+    // console.log(this.loginForm.value)
   }
 
 }

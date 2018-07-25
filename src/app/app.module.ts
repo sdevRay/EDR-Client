@@ -21,7 +21,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { SignupService } from "./services/sign-up.service"
-
+import { DashGuard } from "./guards/dash.guards"
 
 
 @NgModule({
@@ -55,7 +55,7 @@ import { SignupService } from "./services/sign-up.service"
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [SignupService],
+  providers: [SignupService, DashGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
