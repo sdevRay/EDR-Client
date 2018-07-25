@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
-
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SignUpComponent } from './landing-page/sign-up/sign-up.component';
 import { LoginComponent } from './landing-page/login/login.component';
@@ -38,6 +37,7 @@ import { SignupService } from "./services/sign-up.service"
     BaseFitnessComponent,
     PageNotFoundComponent,
     AboutComponent,
+    
     
   ],
   imports: [
