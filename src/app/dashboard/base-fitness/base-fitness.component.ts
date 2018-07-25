@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '../../../../node_modules/@angular/material';
+import { FitnessModalComponent } from '../fitness-modal/fitness-modal.component';
 
 @Component({
   selector: 'app-base-fitness',
@@ -7,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BaseFitnessComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
+
+    openDialog():void {
+      let dialogRef = this.dialog.open(FitnessModalComponent, {
+        height: '40em',
+        width: '40em',
+      })
+    }
 
   ngOnInit() {
   }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '../../../../node_modules/@angular/material';
+import { EventModalComponent } from '../event-modal/event-modal.component';
 
 
 
@@ -9,8 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
+  openDialog():void {
+    let dialogRef = this.dialog.open(EventModalComponent, {
+      height: '40em',
+      width: '40em'
+    })
+  }
 
 ngOnInit(){
 

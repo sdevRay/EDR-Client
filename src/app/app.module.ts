@@ -22,6 +22,13 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { SignupService } from "./services/sign-up.service"
 import { DashGuard } from "./guards/dash.guards"
+import {MatDialogModule} from '@angular/material/dialog';
+import { FitnessModalComponent } from './dashboard/fitness-modal/fitness-modal.component';
+import {MatSelectModule} from '@angular/material/select';
+import { EventModalComponent } from './dashboard/event-modal/event-modal.component';
+
+
+
 
 
 @NgModule({
@@ -37,6 +44,8 @@ import { DashGuard } from "./guards/dash.guards"
     BaseFitnessComponent,
     PageNotFoundComponent,
     AboutComponent,
+    FitnessModalComponent,
+    EventModalComponent,
     
     
   ],
@@ -53,7 +62,13 @@ import { DashGuard } from "./guards/dash.guards"
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    MatSelectModule
+  ],
+  entryComponents: [
+    FitnessModalComponent,
+    EventModalComponent
   ],
   providers: [SignupService, DashGuard],
   bootstrap: [AppComponent]

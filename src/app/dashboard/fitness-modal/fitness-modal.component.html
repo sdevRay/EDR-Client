@@ -1,0 +1,36 @@
+<h2>Enter Your Starting Stats!</h2>
+<form [formGroup]='baseFitnessForm' (ngSubmit)='onSubmit()'>
+  <mat-form-field appearance='outline'>
+    <input matInput formControlName='date' placeholder="Your Starting Date" type='date' required> Your Starting Date
+  </mat-form-field>
+  <mat-form-field appearance='outline'>
+    <mat-select formControlName='disipline' placeholder="Type of workout" required>
+      <mat-option value='running'>Running</mat-option>
+      <mat-option value='swimming'>Swimming</mat-option>
+      <mat-option value='biking'>Biking</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance='outline'>
+    <mat-select matInput formControlName='measurement' placeholder="Type Of Training" required>
+      <mat-option value='time'>Time</mat-option>
+      <mat-option value='distance'>Distance</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance ='outline'>
+    <mat-select matInput formControlName='unit' placeholder="Unit of Measurement" required>
+      <mat-option value='Miles'>Miles</mat-option>
+      <mat-option value='Kilometers'>Kilometers</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance='outline'>
+    <input matInput formControlName='currentDistance' placeholder="Your Starting Distance" required>
+  </mat-form-field>
+  <mat-form-field appearance='outline'>
+    <input matInput formControlName='currentHours' placeholder="Your Starting Hours" required><hr>
+    <input matInput formControlName='currentMinutes' placeholder="Your Starting Minutes" required><hr>
+    <input matInput formControlName='currentSeconds' placeholder="Your Starting Seconds" required><hr>
+  Current Time
+  </mat-form-field>
+  <button mat-button type="submit" (click)='onSubmit()'>Submit</button>
+
+</form>
