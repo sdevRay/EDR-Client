@@ -3,7 +3,7 @@
   <!-- <span>Event Driven Results</span> -->
   <span><i>E</i>vent <i>D</i>riven <i>R</i>esults</span>
   <span class="fill-remaining-space"></span>
-  <div *ngIf="isLoggedIn">
-    <button mat-raised-button class="nav-btn" (click)="onLogout()">Logout</button>
+  <div *ngIf="signupService.loggedIn()">
+    <button mat-raised-button class="nav-btn" (click)="signupService.logoutUser()">Logout</button>
   </div>
 </mat-toolbar>
