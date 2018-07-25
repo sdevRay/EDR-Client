@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -22,8 +22,10 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
+import { DashboardService } from "./services/dashboard.service"
 import { SignupService } from "./services/sign-up.service"
 import { DashGuard } from "./guards/dash.guards"
+import { TokenInterceptorService } from "./interceptors/token.interceptor.service" 
 
 
 @NgModule({
@@ -54,7 +56,12 @@ import { DashGuard } from "./guards/dash.guards"
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [SignupService, DashGuard],
+  providers: [SignupService, DashboardService, DashGuard, 
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

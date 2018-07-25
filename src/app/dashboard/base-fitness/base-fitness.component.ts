@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardService } from "../../services/dashboard.service"
 
 @Component({
   selector: 'app-base-fitness',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BaseFitnessComponent implements OnInit {
 
-  constructor() { }
+  public stats = [];
 
+  constructor(private dashboardService: DashboardService) { 
+    
+  }
+  
   ngOnInit() {
+    this.dashboardService.getAllCards().subscribe(returnedData => {
+      this.stats = returnedData
+      console.log(this.stats)
+    });
+
   }
 
 }

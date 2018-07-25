@@ -3,7 +3,36 @@
 </h3>
 <hr>
 <br>
+<!--
 <mat-card>
   <p class="eventAdd">+</p>
   <mat-card-subtitle>Add a Snapshot of your current fitness</mat-card-subtitle>
-</mat-card>
+</mat-card> -->
+
+<ul>
+  <li *ngFor="let stat of stats">
+    <mat-card>
+      <ul>
+        <li>Training Start Date: {{stat.date}}</li>
+        <li>Discipline: {{stat.discipline}}</li>
+        <li>Type of training: {{stat.measurement}}</li>
+        <li>Training Start Date: {{stat.date}}</li>
+        <li>Training Start Date: {{stat.owner}}</li>
+      </ul>
+    </mat-card>
+  </li>
+</ul>
+
+<!-- "id": 1,
+"date": "string",
+"discipline": "string",
+"measurement": "Distance",
+"unit": "Kilometers",
+"currentDistance": 5,
+"currentHours": 5,
+"currentMinutes": 5,
+"currentSeconds": 5,
+"totalSeconds": 18305,
+"owner": 32,
+"createdAt": "2018-07-25T17:04:26.347Z",
+"updatedAt": "2018-07-25T17:04:26.347Z" -->
