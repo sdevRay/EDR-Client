@@ -1,5 +1,6 @@
+<div class="eventsomp">
 <h3 class='title'>
-  Upcoming Public Events
+  Upcoming Events
 </h3>
 <hr>
 <br>
@@ -8,19 +9,23 @@
   <mat-card-subtitle>Click here to add new Event or Personal Goal</mat-card-subtitle>
 </mat-card>
 <br>
-<mat-card>
+<button (click)= 'getAllEvents()'>See All Events</button>
+<button (click)='getMyEvents()'>See Just My Events</button>
+<mat-card *ngFor= "let event of events">
   <mat-card-title>
-    Carmel Marathon
+    {{event.eventName}}
   </mat-card-title>
   <mat-card-subtitle>
-    <span>Carmel</span>,
-    <span>Indiana</span>
+    <span>{{event.eventCity}}</span>,
+    <span>{{event.eventState}}</span>
   </mat-card-subtitle>
   <mat-card-subtitle>
-    09-01-2018
+    {{event.eventDate}}
   </mat-card-subtitle>
   <mat-card-subtitle>
-    Running Event
+    {{event.eventType}}<span> event</span>
   </mat-card-subtitle>
   <button>Create Plan for This Event</button>
+  <button *ngIf='myEventsSelected'>Delete</button>
 </mat-card>
+</div>

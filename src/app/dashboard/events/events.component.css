@@ -6,6 +6,7 @@ h3 {
     font-size: 30px;
 }
 .eventAdd {
+    cursor: pointer;
     font-size: 50px;
     text-align: center;
     border: 1px gray solid;
@@ -13,4 +14,8 @@ h3 {
 mat-card{
     width: 100%;
     background-color: lightblue;
+    margin: 1em;
+}
+.eventsComp{
+    margin: 10em 0em 10em 0em
 }

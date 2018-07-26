@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { StatCard } from '../models/StatCard';
 import { Observable } from '../../../node_modules/rxjs';
+import { EventCard } from "../models/EventCard";
 
 const baseURL: string = "http://localhost:3000";
 
@@ -15,5 +16,15 @@ export class DashboardService {
     getAllCards(): Observable<StatCard[]>{
         return this.http.get<StatCard[]>(`${baseURL}/stat/getall`)
     }
+
+    getAllEvents(): Observable<EventCard[]>{
+        return this.http.get<EventCard[]>(`${baseURL}/event/allevents`)
+    }
+
+    getMyEvents(): Observable<EventCard[]>{
+        return this.http.get<EventCard[]>(`${baseURL}/event/myevents`)
+    }
+
+
     
 }
