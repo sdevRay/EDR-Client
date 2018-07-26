@@ -17,6 +17,10 @@
         <li>Training Start Date: {{stat.date}}</li>
         <li>Training Start Date: {{stat.owner}}</li>
       </ul>
+      <ul>
+        <button (click)="onUpdate(stat.id)">UPDATE</button>
+        <button (click)="onDelete(stat.id)">DELETE</button>
+      </ul>
     </mat-card>
   </li>
 </ul>

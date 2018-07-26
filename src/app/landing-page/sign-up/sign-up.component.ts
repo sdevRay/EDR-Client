@@ -38,7 +38,6 @@ export class SignUpComponent implements OnInit {
     this.signupService
       .register(this.signupForm.value)   
       .subscribe(() => this.signupService.login(this.signupForm.value))
-
   }
 
 }
