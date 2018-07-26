@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms"
-import { MatDialogRef, MAT_DIALOG_DATA } from '../../../../node_modules/@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-fitness-modal',
@@ -21,13 +21,18 @@ export class FitnessModalComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.baseFitnessForm.valueChanges.subscribe(console.log)
+    // this.baseFitnessForm.valueChanges.subscribe(console.log)
   }
+  
+  ngOnChanges()	{
+    // this.baseFitnessForm.valueChanges.subscribe(console.log)
+  }
+
 
   createForm(): void {
     this.baseFitnessForm = this.fb.group({
       date: new FormControl,
-      disipline: new FormControl,
+      discipline: new FormControl,
       measurement: new FormControl,
       unit: new FormControl,
       currentDistance: new FormControl,
@@ -39,10 +44,12 @@ export class FitnessModalComponent implements OnInit {
   }
 
   onSubmit():void {
-    console.log(this.baseFitnessForm.value)
+    console.log("ONSUBMIT")
+    this.dialogRef.close(this.baseFitnessForm.value);
   }
 
   close():void {
+    console.log("CLOSE")
     this.dialogRef.close()
   }
 

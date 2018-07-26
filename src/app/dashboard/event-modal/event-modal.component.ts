@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms"
-import { MatDialogRef, MAT_DIALOG_DATA } from '../../../../node_modules/@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-event-modal',
@@ -12,12 +12,9 @@ export class EventModalComponent implements OnInit {
   private eventForm: FormGroup
 
   constructor(private form: FormBuilder, public dialogRef: MatDialogRef<EventModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { 
-
     this.createForm()
 
   }
-
-
 
   ngOnInit() {
     this.eventForm.valueChanges.subscribe(console.log)
