@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms"
+import { MatDialogRef, MAT_DIALOG_DATA } from '../../../../node_modules/@angular/material';
 
 @Component({
   selector: 'app-event-modal',
@@ -10,7 +11,7 @@ export class EventModalComponent implements OnInit {
 
   private eventForm: FormGroup
 
-  constructor(private form: FormBuilder) { 
+  constructor(private form: FormBuilder, public dialogRef: MatDialogRef<EventModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { 
 
     this.createForm()
 
@@ -19,20 +20,33 @@ export class EventModalComponent implements OnInit {
 
 
   ngOnInit() {
+    this.eventForm.valueChanges.subscribe(console.log)
   }
 
 
   createForm(): void {
     this.eventForm = this.form.group({
-      date: new FormControl,
-      disipline: new FormControl,
-      measurement: new FormControl,
+      eventName: new FormControl,
+      eventCity: new FormControl,
+      eventDate: new FormControl,
+      eventType: new FormControl,
       unit: new FormControl,
-      currentDistance: new FormControl,
-      currentHours: new FormControl,
-      currentMinutes: new FormControl,
-      currentSeconds: new FormControl
+      eventDistance: new FormControl,
+      goalHours: new FormControl,
+      goalMinutes: new FormControl,
+      goalSeconds: new FormControl,
+      measurement: new FormControl
 
     })
   }
+  
+  onSubmit():void {
+    console.log(this.eventForm.value)
+  }
+
+  close():void {
+    this.dialogRef.close()
+  }
+
+
 }
