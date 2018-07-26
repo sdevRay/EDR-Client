@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '../../../../node_modules/@angular/material';
+import { MatDialog } from '@angular/material';
 import { EventModalComponent } from '../event-modal/event-modal.component';
 import { DashboardService } from '../../services/dashboard.service'
 
@@ -15,7 +15,7 @@ export class EventsComponent implements OnInit {
   }
   myEventsSelected: boolean = false;
 
-  openDialog():void {
+  openDialog(): void {
     let dialogRef = this.dialog.open(EventModalComponent, {
       height: '40em',
       width: '40em'

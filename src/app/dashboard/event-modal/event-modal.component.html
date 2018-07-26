@@ -1,17 +1,23 @@
 <h2>Enter Your Starting Stats!</h2>
-<form [formGroup]='eventForm' (ngSubmit)='onSubmit()'>
+<form [formGroup]='eventForm'>
   <mat-form-field appearance='outline'>
-    <input matInput formControlName='date' placeholder="Your Starting Date" type='date' required> Your Starting Date
+    <input matInput formControlName='eventDate' placeholder="Event Date" type='date' required> Your Starting Date
   </mat-form-field>
   <mat-form-field appearance='outline'>
-    <mat-select formControlName='disipline' placeholder="Type of workout" required>
+    <input matInput formControlName='eventName' placeholder="Event Name" required>
+  </mat-form-field>
+  <mat-form-field appearance='outline'>
+    <input matInput formControlName='eventCity' placeholder="Event City" required>
+  </mat-form-field>
+  <mat-form-field appearance='outline'>
+    <mat-select formControlName='eventType' placeholder="Event Type" required>
       <mat-option value='running'>Running</mat-option>
       <mat-option value='swimming'>Swimming</mat-option>
       <mat-option value='biking'>Biking</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field appearance='outline'>
-    <mat-select matInput formControlName='measurement' placeholder="Type Of Training" required>
+    <mat-select matInput formControlName='measurement' placeholder='What will we measure?' required>
       <mat-option value='time'>Time</mat-option>
       <mat-option value='distance'>Distance</mat-option>
     </mat-select>
@@ -23,14 +29,16 @@
     </mat-select>
   </mat-form-field>
   <mat-form-field appearance='outline'>
-    <input matInput formControlName='currentDistance' placeholder="Your Starting Distance" required>
+    <input matInput formControlName='eventDistance' placeholder="Event Total Distance" required>
   </mat-form-field>
   <mat-form-field appearance='outline'>
-    <input matInput formControlName='currentHours' placeholder="Your Starting Hours" required><hr>
-    <input matInput formControlName='currentMinutes' placeholder="Your Starting Minutes" required><hr>
-    <input matInput formControlName='currentSeconds' placeholder="Your Starting Seconds" required><hr>
-  Current Time
+    <input matInput formControlName='goalHours' placeholder="Your Goal Hours" required><hr>
+    <input matInput formControlName='goalMinutes' placeholder="Your Goal Minutes" required><hr>
+    <input matInput formControlName='goalSeconds' placeholder="Your Goal Seconds" required><hr>
+  Goal Times
   </mat-form-field>
-  <button mat-raised-button color='primary' type="submit" (click)='onSubmit()'>Submit</button>
+  <br>
+  <button mat-raised-button color='primary' type="submit" (click)='onSubmit()'>Create and Send Plan</button>
+  <button mat-raised-button color='warn' (click)='close()'>Cancel</button>
 
 </form>
