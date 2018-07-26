@@ -21,13 +21,7 @@ export class FitnessModalComponent implements OnInit {
    }
 
   ngOnInit() {
-    // this.baseFitnessForm.valueChanges.subscribe(console.log)
   }
-  
-  ngOnChanges()	{
-    // this.baseFitnessForm.valueChanges.subscribe(console.log)
-  }
-
 
   createForm(): void {
     this.baseFitnessForm = this.fb.group({
@@ -44,12 +38,10 @@ export class FitnessModalComponent implements OnInit {
   }
 
   onSubmit():void {
-    console.log("ONSUBMIT")
     this.dialogRef.close(this.baseFitnessForm.value);
   }
 
   close():void {
-    console.log("CLOSE")
     this.dialogRef.close()
   }
 
