@@ -28,11 +28,18 @@ export class DashboardService {
 
     postNewCard(newCard) {
         return this.http.post<any>(`${baseURL}/stat/create`, newCard)
-        .subscribe()
     }
 
-    updateCard(){
-        
+    updateCard(statId, updateCard){
+        return this.http.put<any>(`${baseURL}/stat/update/${statId}`, updateCard)
+    }
+
+    updateOneCard(statId){
+        // console.log(statId)
     }
     
+    deleteCard(statId){
+        return this.http.delete(`${baseURL}/stat/delete/${statId}`)
+    }
+
 }
