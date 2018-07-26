@@ -17,7 +17,7 @@ export class EventModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.eventForm.valueChanges.subscribe(console.log)
+    // this.eventForm.valueChanges.subscribe(console.log)
   }
 
 
@@ -38,7 +38,7 @@ export class EventModalComponent implements OnInit {
   }
   
   onSubmit():void {
-    console.log(this.eventForm.value)
+    this.dialogRef.close(this.eventForm.value);
   }
 
   close():void {

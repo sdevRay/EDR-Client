@@ -20,31 +20,31 @@ export class EventsComponent implements OnInit {
       height: '40em',
       width: '40em'
     })
+
+    dialogRef.afterClosed().subscribe(data => {
+      if (data) {
+        this.dashBoardService.postNewEvent(data)
+        this.getMyEvents();
+      }
+    })
+
   }
   public events = [];
 
 ngOnInit(){
   this.getAllEvents()
-  // this.dashBoardService.getAllEvents().subscribe(returnedData => {
-  //   this.events = returnedData
-  //   console.log(this.events)
-  // })
 }
 getAllEvents(){
   this.dashBoardService.getAllEvents().subscribe(returnedData => {
     this.events = returnedData
-    console.log(this.events)
     this.myEventsSelected = false;
-    console.log(this.myEventsSelected)
   })
 }
 
 getMyEvents(){
   this.dashBoardService.getMyEvents().subscribe(returnedData => {
     this.events = returnedData
-    console.log(this.events)
     this.myEventsSelected = true;
-    console.log(this.myEventsSelected)
   })
 }
 }

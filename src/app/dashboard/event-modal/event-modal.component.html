@@ -1,7 +1,7 @@
-<h2>Enter Your Starting Stats!</h2>
+<h2>Enter Your Event!</h2>
 <form [formGroup]='eventForm'>
   <mat-form-field appearance='outline'>
-    <input matInput formControlName='eventDate' placeholder="Event Date" type='date' required> Your Starting Date
+    <input matInput formControlName='eventDate' placeholder="Event Date" type='date' required> Date of the Event
   </mat-form-field>
   <mat-form-field appearance='outline'>
     <input matInput formControlName='eventName' placeholder="Event Name" required>
@@ -18,8 +18,8 @@
   </mat-form-field>
   <mat-form-field appearance='outline'>
     <mat-select matInput formControlName='measurement' placeholder='What will we measure?' required>
-      <mat-option value='time'>Time</mat-option>
-      <mat-option value='distance'>Distance</mat-option>
+      <mat-option value='Time'>Time</mat-option>
+      <mat-option value='Distance'>Distance</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field appearance ='outline'>
@@ -38,7 +38,7 @@
   Goal Times
   </mat-form-field>
   <br>
-  <button mat-raised-button color='primary' type="submit" (click)='onSubmit()'>Create and Send Plan</button>
+  <button mat-raised-button color='primary' type="submit" (click)='onSubmit()'>Create Plan for this Event</button>
   <button mat-raised-button color='warn' (click)='close()'>Cancel</button>
 
 </form>

@@ -30,5 +30,10 @@ export class DashboardService {
         return this.http.post<any>(`${baseURL}/stat/create`, newCard)
         .subscribe()
     }
+
+    postNewEvent(newEvent) {
+        return this.http.post<any>(`${baseURL}/event/create`, newEvent)
+        .subscribe()
+    }
     
 }
