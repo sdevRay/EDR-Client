@@ -1,5 +1,5 @@
-<h2>Post Your Awesome Event!</h2>
-<form [formGroup]='baseFitnessForm' (ngSubmit)='onSubmit()'>
+<h2>Enter Your Starting Stats!</h2>
+<form [formGroup]='eventForm' (ngSubmit)='onSubmit()'>
   <mat-form-field appearance='outline'>
     <input matInput formControlName='date' placeholder="Your Starting Date" type='date' required> Your Starting Date
   </mat-form-field>
@@ -29,7 +29,8 @@
     <input matInput formControlName='currentHours' placeholder="Your Starting Hours" required><hr>
     <input matInput formControlName='currentMinutes' placeholder="Your Starting Minutes" required><hr>
     <input matInput formControlName='currentSeconds' placeholder="Your Starting Seconds" required><hr>
-    Current Time
+  Current Time
   </mat-form-field>
-  <button mat-rasised-button color='primary' type="submit" (click)='onSubmit()' >Submit</button>
+  <button mat-raised-button color='primary' type="submit" (click)='onSubmit()'>Submit</button>
+
 </form>
