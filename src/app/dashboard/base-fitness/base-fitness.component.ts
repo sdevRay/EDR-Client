@@ -39,4 +39,9 @@ export class BaseFitnessComponent implements OnInit {
     });
   }
 
+  onUpdate(){
+    console.log("UPDATE CLICKED")
+    this.dashboardService.updateCard()
+  }
+
 }
