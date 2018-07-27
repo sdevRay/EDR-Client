@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { FitnessModalComponent } from '../fitness-modal/fitness-modal.component';
 import { DashboardService } from "../../services/dashboard.service"
 import { Observable } from '../../../../node_modules/rxjs';
+import { StatCard } from '../../models/StatCard';
 
 @Component({
   selector: 'app-base-fitness',
@@ -11,12 +12,27 @@ import { Observable } from '../../../../node_modules/rxjs';
 })
 export class BaseFitnessComponent implements OnInit {
 
+  public stats = [];
+  public updateOneCardArray: any;
+
   constructor(public dialog: MatDialog, private dashboardService: DashboardService) { }
 
   openDialog(): void {
+
     let dialogRef = this.dialog.open(FitnessModalComponent, {
       height: '40em',
       width: '40em',
+      data: {
+        date: "",
+        discipline: "",
+        measurement: "",
+        unit: "",
+        currentDistance: "",
+        currentHours: "",
+        currentMinutes: "",
+        currentSeconds: "",
+        update: false
+      }
     })
 
     dialogRef.afterClosed().subscribe(result => {
@@ -28,12 +44,31 @@ export class BaseFitnessComponent implements OnInit {
   }
 
   updateDialog(statId): void {
+    this.dashboardService.getOneCard(statId).subscribe(returnedData => {
+      this.updateOneCardArray = returnedData;
+      this.launchUpdateDialog(statId, this.updateOneCardArray)
+    })
+  }
+
+  launchUpdateDialog(statId, updateOneCardArray){
+
     let dialogRef = this.dialog.open(FitnessModalComponent, {
       height: '40em',
       width: '40em',
+      data: {
+        date: updateOneCardArray.date,
+        discipline: updateOneCardArray.discipline,
+        measurement: updateOneCardArray.measurement,
+        unit: updateOneCardArray.unit,
+        currentDistance: updateOneCardArray.currentDistance,
+        currentHours: updateOneCardArray.currentHours,
+        currentMinutes: updateOneCardArray.currentMinutes,
+        currentSeconds: updateOneCardArray.currentSeconds,
+        update: true
+      }
     })
 
-    dialogRef.afterOpen().subscribe(() => console.log("HIHIHI"))
+    // dialogRef.afterOpen().subscribe(() => console.log("HIHIHI"))
 
     dialogRef.afterClosed().subscribe(updateCard => {
       if (updateCard) {
@@ -46,8 +81,6 @@ export class BaseFitnessComponent implements OnInit {
   ngOnInit() {
     this.getCards();
   }
-
-  public stats = [];
 
   getCards(): void {
     this.dashboardService.getAllCards().subscribe(returnedData => {

@@ -17,6 +17,10 @@ export class DashboardService {
         return this.http.get<StatCard[]>(`${baseURL}/stat/getall`)
     }
 
+    getOneCard(statId): Observable<StatCard[]>{
+        return this.http.get<StatCard[]>(`${baseURL}/stat/getone/${statId}`)
+    }
+
     getAllEvents(): Observable<EventCard[]>{
         return this.http.get<EventCard[]>(`${baseURL}/event/allevents`)
     }
@@ -25,17 +29,12 @@ export class DashboardService {
         return this.http.get<EventCard[]>(`${baseURL}/event/myevents`)
     }
 
-
     postNewCard(newCard) {
         return this.http.post<any>(`${baseURL}/stat/create`, newCard)
     }
 
     updateCard(statId, updateCard){
         return this.http.put<any>(`${baseURL}/stat/update/${statId}`, updateCard)
-    }
-
-    updateOneCard(statId){
-        // console.log(statId)
     }
     
     deleteCard(statId){

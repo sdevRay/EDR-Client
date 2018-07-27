@@ -6,5 +6,6 @@ export interface StatCard {
     currentDistance: number,
     currentHours: number,
     currentMinutes: number,
-    currentSeconds: number
+    currentSeconds: number,
+    update?: boolean
 }

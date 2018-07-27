@@ -1,6 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms"
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { StatCard } from '../../models/StatCard';
+
+
 
 @Component({
   selector: 'app-fitness-modal',
@@ -16,13 +19,18 @@ export class FitnessModalComponent implements OnInit {
 
   private baseFitnessForm: FormGroup;
 
-  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<FitnessModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
-    this.createForm()
-   }
-
-  ngOnInit() {
+  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<FitnessModalComponent>, @Inject(MAT_DIALOG_DATA) public data: StatCard) {
+    if(data.update){
+      this.updateForm()
+    } else {
+      this.createForm()
+    }
   }
 
+  ngOnInit() {
+    // console.log(this.data)
+  }
+  
   createForm(): void {
     this.baseFitnessForm = this.fb.group({
       date: new FormControl,
@@ -33,7 +41,19 @@ export class FitnessModalComponent implements OnInit {
       currentHours: new FormControl,
       currentMinutes: new FormControl,
       currentSeconds: new FormControl
+    })
+  }
 
+  updateForm(): void {
+    this.baseFitnessForm = this.fb.group({
+      date: new FormControl(this.data.date),
+      discipline: new FormControl(this.data.discipline),
+      measurement: new FormControl(this.data.measurement),
+      unit: new FormControl(this.data.unit),
+      currentDistance: new FormControl(this.data.currentDistance),
+      currentHours: new FormControl(this.data.currentHours),
+      currentMinutes: new FormControl(this.data.currentMinutes),
+      currentSeconds: new FormControl(this.data.currentSeconds)
     })
   }
 
