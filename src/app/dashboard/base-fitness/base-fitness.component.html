@@ -1,3 +1,4 @@
+<div class= 'baseComp'>
 <h3 class='title'>
   Current Fitness Picture
 </h3>
@@ -7,23 +8,29 @@
     <mat-card-subtitle>Add a Snapshot of your current fitness</mat-card-subtitle>
 </mat-card>
 
-<ul>
-  <li *ngFor="let stat of stats">
-    <mat-card>
-      <ul>
-        <li>Training Start Date: {{stat.date}}</li>
-        <li>Discipline: {{stat.discipline}}</li>
-        <li>Type of training: {{stat.measurement}}</li>
-        <li>Training Start Date: {{stat.date}}</li>
-        <li>Training Start Date: {{stat.owner}}</li>
-      </ul>
-      <ul>
+
+  
+    <mat-card class="fitnessCard" *ngFor="let stat of stats">
+      
+        <mat-card-title>{{stat.discipline | uppercase}} SNAPSHOT</mat-card-title>
+        <mat-card-subtitle>Training for: {{stat.measurement}}</mat-card-subtitle>
+        
+        <div *ngIf = 'stat.measurement == "Time"'>
+          <mat-card-content>Capable of <b>{{stat.discipline}} {{stat.currentDistance}} {{stat.unit}}</b> in
+           <b>{{stat.currentHours}}:{{stat.currentMinutes | number: '2.0'}}:{{stat.currentSeconds | number: '2.0'}}</b> as of <b>{{stat.date}}</b></mat-card-content>
+        </div>
+        <div *ngIf = 'stat.measurement == "Distance"'>
+          <mat-card-content>Capable of <b>{{stat.discipline}} {{stat.currentDistance}} {{stat.unit}} </b>as of <b>{{stat.date}}</b></mat-card-content>
+        </div>
+      
+      
         <button (click)="onUpdate(stat.id)">UPDATE</button>
         <button (click)="onDelete(stat.id)">DELETE</button>
-      </ul>
+      
     </mat-card>
-  </li>
-</ul>
+    </div>
+  
+
 
 <!-- "id": 1,
 "date": "string",

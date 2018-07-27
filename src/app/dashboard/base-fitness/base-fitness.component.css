@@ -9,8 +9,19 @@ h3 {
     font-size: 50px;
     text-align: center;
     border: 1px gray solid;
+    cursor: pointer;
 }
 mat-card{
     width: 100%;
     background-color: lightblue;
+}
+.fitnessCard{
+    margin: 1em;
+}
+
+.baseComp {
+    margin: 5em 0em 5em 0em;
+    position: absolute;
+    top: 0em;
+    left: 0em;
 }
