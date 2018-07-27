@@ -1,9 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { FitnessModalComponent } from '../fitness-modal/fitness-modal.component';
-import { DashboardService } from "../../services/dashboard.service"
-import { Observable } from '../../../../node_modules/rxjs';
-import { StatCard } from '../../models/StatCard';
+import { DashboardService } from "../../services/dashboard.service";
 
 @Component({
   selector: 'app-base-fitness',
@@ -18,19 +16,11 @@ export class BaseFitnessComponent implements OnInit {
   constructor(public dialog: MatDialog, private dashboardService: DashboardService) { }
 
   openDialog(): void {
-
+    
     let dialogRef = this.dialog.open(FitnessModalComponent, {
       height: '40em',
       width: '40em',
       data: {
-        date: "",
-        discipline: "",
-        measurement: "",
-        unit: "",
-        currentDistance: "",
-        currentHours: "",
-        currentMinutes: "",
-        currentSeconds: "",
         update: false
       }
     })
@@ -68,8 +58,6 @@ export class BaseFitnessComponent implements OnInit {
       }
     })
 
-    // dialogRef.afterOpen().subscribe(() => console.log("HIHIHI"))
-
     dialogRef.afterClosed().subscribe(updateCard => {
       if (updateCard) {
         this.dashboardService.updateCard(statId, updateCard)
@@ -85,7 +73,7 @@ export class BaseFitnessComponent implements OnInit {
   getCards(): void {
     this.dashboardService.getAllCards().subscribe(returnedData => {
       this.stats = returnedData
-      console.log(this.stats)
+      console.log(this.stats.length)
     });
   }
 

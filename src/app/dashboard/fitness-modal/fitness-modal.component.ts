@@ -3,17 +3,11 @@ import { FormBuilder, FormGroup, FormControl } from "@angular/forms"
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { StatCard } from '../../models/StatCard';
 
-
-
 @Component({
   selector: 'app-fitness-modal',
   templateUrl: './fitness-modal.component.html',
   styleUrls: ['./fitness-modal.component.css']
 })
-
-// export class SelectedValue {
-//   selected = ''
-// }
 
 export class FitnessModalComponent implements OnInit {
 
@@ -22,6 +16,9 @@ export class FitnessModalComponent implements OnInit {
 
   constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<FitnessModalComponent>, @Inject(MAT_DIALOG_DATA) public data: StatCard) {
     if(data.update){
+        if(data.measurement == "Time"){
+          this.timeSelected = true;
+        }
       this.updateForm()
     } else {
       this.createForm()

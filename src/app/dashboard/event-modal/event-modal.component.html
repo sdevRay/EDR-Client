@@ -1,4 +1,11 @@
-<h2>Enter Your Event!</h2>
+
+<h2>
+    <span *ngIf="!data.update">Create</span>
+    <span *ngIf="data.update">Update</span>
+    Your Event!
+</h2>
+
+
 <form [formGroup]='eventForm'>
   <mat-form-field appearance='outline'>
     <input matInput formControlName='eventDate' placeholder="Event Date" type='date' required> Date of the Event
@@ -11,9 +18,9 @@
   </mat-form-field>
   <mat-form-field appearance='outline'>
     <mat-select formControlName='eventType' placeholder="Event Type" required>
-      <mat-option value='running'>Running</mat-option>
-      <mat-option value='swimming'>Swimming</mat-option>
-      <mat-option value='cycling'>Cycling</mat-option>
+      <mat-option value='Running'>Running</mat-option>
+      <mat-option value='Swimming'>Swimming</mat-option>
+      <mat-option value='Cycling'>Cycling</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field appearance='outline'>
@@ -38,7 +45,10 @@
   Goal Times
   </mat-form-field>
   <br>
-  <button mat-raised-button color='primary' type="submit" (click)='onSubmit()'>Create Plan for this Event</button>
+  <button mat-raised-button color='primary' type="submit" (click)='onSubmit()'>
+      <span *ngIf="!data.update">Create</span>
+      <span *ngIf="data.update">Update</span>
+  </button>
   <button mat-raised-button color='warn' (click)='close()'>Cancel</button>
 
 </form>

@@ -1,14 +1,17 @@
-<h2>Enter Your Starting Stats!</h2>
-<!-- <form [formGroup]='baseFitnessForm' (ngSubmit)='onSubmit()'> -->
+<h2>
+<span *ngIf="!data.update">Enter</span>
+<span *ngIf="data.update">Update</span>
+Your Starting Stats!</h2>
+
 <form [formGroup]='baseFitnessForm'>
   <mat-form-field appearance='outline'>
     <input matInput formControlName='date' placeholder="Your Starting Date" type='date' required> Your Starting Date
   </mat-form-field>
   <mat-form-field appearance='outline'>
     <mat-select formControlName='discipline' placeholder="Type of workout" required>
-      <mat-option value='running'>Running</mat-option>
-      <mat-option value='swimming'>Swimming</mat-option>
-      <mat-option value='cycling'>Cycling</mat-option>
+      <mat-option value='Running'>Running</mat-option>
+      <mat-option value='Swimming'>Swimming</mat-option>
+      <mat-option value='Cycling'>Cycling</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field appearance='outline'>
@@ -33,7 +36,10 @@
   Current Time
   </mat-form-field>
   <br>
-  <button mat-raised-button color='primary' type="submit" (click)="onSubmit()">Create</button>
+  <button mat-raised-button color='primary' type="submit" (click)="onSubmit()">
+    <span *ngIf="!data.update">Create</span>
+    <span *ngIf="data.update">Update</span>
+  </button>
   <button mat-raised-button color='warn' (click)='close()'>Cancel</button>
 
 </form>
