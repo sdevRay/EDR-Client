@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { FitnessModalComponent } from '../fitness-modal/fitness-modal.component';
 import { DashboardService } from "../../services/dashboard.service"
 import { Observable } from '../../../../node_modules/rxjs';
