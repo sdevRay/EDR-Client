@@ -15,6 +15,7 @@ export class EventModalComponent implements OnInit {
     this.createForm()
 
   }
+  timeSelected: boolean = false
 
   ngOnInit() {
     // this.eventForm.valueChanges.subscribe(console.log)
@@ -43,6 +44,14 @@ export class EventModalComponent implements OnInit {
 
   close():void {
     this.dialogRef.close()
+  }
+
+  time() {
+    this.timeSelected = true
+  }
+
+  distance() {
+    this.timeSelected = false
   }
 
 

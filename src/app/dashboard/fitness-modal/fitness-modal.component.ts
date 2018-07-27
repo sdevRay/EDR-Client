@@ -16,13 +16,19 @@ export class FitnessModalComponent implements OnInit {
 
   private baseFitnessForm: FormGroup;
 
+
   constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<FitnessModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
     this.createForm()
-   }
-
-  ngOnInit() {
+    
+    
+    
   }
-
+  
+  ngOnInit() {
+    
+  }
+  timeSelected: boolean = false
+  
   createForm(): void {
     this.baseFitnessForm = this.fb.group({
       date: new FormControl,
@@ -43,6 +49,16 @@ export class FitnessModalComponent implements OnInit {
 
   close():void {
     this.dialogRef.close()
+  }
+
+  time() {
+    this.timeSelected = true
+    console.log(this.timeSelected)
+
+  }
+
+  distance() {
+    this.timeSelected =false
   }
 
 }
