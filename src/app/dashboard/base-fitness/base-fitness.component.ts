@@ -48,12 +48,8 @@ export class BaseFitnessComponent implements OnInit {
       data: {
         date: updateOneCardArray.date,
         discipline: updateOneCardArray.discipline,
-        measurement: updateOneCardArray.measurement,
         unit: updateOneCardArray.unit,
         currentDistance: updateOneCardArray.currentDistance,
-        currentHours: updateOneCardArray.currentHours,
-        currentMinutes: updateOneCardArray.currentMinutes,
-        currentSeconds: updateOneCardArray.currentSeconds,
         update: true
       }
     })
@@ -73,7 +69,6 @@ export class BaseFitnessComponent implements OnInit {
   getCards(): void {
     this.dashboardService.getAllCards().subscribe(returnedData => {
       this.stats = returnedData
-      console.log(this.stats.length)
     });
   }
 

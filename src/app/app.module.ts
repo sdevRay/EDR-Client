@@ -28,7 +28,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { EventModalComponent } from './dashboard/event-modal/event-modal.component';
 import { DashboardService } from "./services/dashboard.service"
 
-import { TokenInterceptorService } from "./interceptors/token.interceptor.service" 
+import { TokenInterceptorService } from "./interceptors/token.interceptor.service";
+import { PlanModalComponent } from './dashboard/plan-modal/plan-modal.component' 
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { TokenInterceptorService } from "./interceptors/token.interceptor.servic
     AboutComponent,
     FitnessModalComponent,
     EventModalComponent,
+    PlanModalComponent,
     
     
   ],
@@ -68,7 +70,8 @@ import { TokenInterceptorService } from "./interceptors/token.interceptor.servic
   ],
   entryComponents: [
     FitnessModalComponent,
-    EventModalComponent
+    EventModalComponent,
+    PlanModalComponent
   ],
   providers: [SignupService, DashboardService, DashGuard, 
   {

@@ -1,29 +1,26 @@
-<div class= 'baseComp'>
-<h3 class='title'>
-  Current Fitness Picture
-</h3>
+<div class='baseComp'>
+    <h3 class='title'>
+        Current Fitness Picture
+    </h3>
 
-<mat-card mat-buton (click)="openDialog()">
-    <p class="eventAdd">+</p>
-    <mat-card-subtitle>Add a Snapshot of your current fitness</mat-card-subtitle>
-</mat-card>
-  
+    <mat-card mat-buton (click)="openDialog()">
+        <p class="eventAdd">+</p>
+        <mat-card-subtitle>Add a Snapshot of your current fitness</mat-card-subtitle>
+    </mat-card>
+
     <mat-card class="fitnessCard" *ngFor="let stat of stats">
-      
+
         <mat-card-title>{{stat.discipline | uppercase}} SNAPSHOT</mat-card-title>
-        <mat-card-subtitle>Training for: {{stat.measurement}}</mat-card-subtitle>
-        
-        <div *ngIf = 'stat.measurement == "Time"'>
-          <mat-card-content>Capable of <b>{{stat.discipline}} {{stat.currentDistance}} {{stat.unit}}</b> in
-           <b>{{stat.currentHours}}:{{stat.currentMinutes | number: '2.0'}}:{{stat.currentSeconds | number: '2.0'}}</b> as of <b>{{stat.date}}</b></mat-card-content>
-        </div>
-        <div *ngIf = 'stat.measurement == "Distance"'>
-          <mat-card-content>Capable of <b>{{stat.discipline}} {{stat.currentDistance}} {{stat.unit}} </b>as of <b>{{stat.date}}</b></mat-card-content>
+
+        <div>
+            <mat-card-content>Capable of
+                <b>{{stat.discipline}} {{stat.currentDistance}} {{stat.unit}} </b>as of
+                <b>{{stat.date | date}}</b>
+            </mat-card-content>
         </div>
         <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="onUpdate(stat.id)">Update</button>
-        <button mat-raised-button color="warn" (click)="onDelete(stat.id)">Delete</button>
+            <button mat-raised-button color="primary" (click)="onUpdate(stat.id)">Update</button>
+            <button mat-raised-button color="warn" (click)="onDelete(stat.id)">Delete</button>
         </mat-card-actions>
     </mat-card>
-    </div>
-  
+</div>

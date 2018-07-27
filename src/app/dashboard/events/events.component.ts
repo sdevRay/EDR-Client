@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { EventModalComponent } from '../event-modal/event-modal.component';
 import { DashboardService } from '../../services/dashboard.service'
+import { PlanModalComponent } from '../plan-modal/plan-modal.component';
 
 @Component({
   selector: 'app-events',
@@ -11,13 +12,12 @@ import { DashboardService } from '../../services/dashboard.service'
 export class EventsComponent implements OnInit {
 
   public events = [];
-  public updateOneCardArray: any;
-
+  public oneCardArray: any;
+  myEventsSelected: boolean = false;
 
   constructor(private dialog: MatDialog, private dashBoardService: DashboardService) {
-
   }
-  myEventsSelected: boolean = false;
+  
 
   openDialog(): void {
 
@@ -35,33 +35,54 @@ export class EventsComponent implements OnInit {
           .subscribe(() => this.getMyEvents())
       }
     })
+  }
 
+  createPlanDialog(planId):void {
+    this.dashBoardService.getOneEvent(planId)
+    .subscribe(returnedData => {
+      this.oneCardArray = returnedData;
+
+      this.launchPlanDialog(this.oneCardArray)
+    })
+  }
+
+  launchPlanDialog(planCardArray){
+    let dialogRef = this.dialog.open(PlanModalComponent, {
+      height: '40em',
+      width: '40em',
+      data: {
+        eventDate: planCardArray.eventDate,
+        eventName: planCardArray.eventName,
+        eventCity: planCardArray.eventCity,
+        eventState: planCardArray.eventState,
+        eventType: planCardArray.eventType,
+        unit: planCardArray.unit,
+        eventDistance: planCardArray.eventDistance,
+        update: true
+      }
+    })
   }
 
   updateDialog(eventId): void {
     this.dashBoardService.getOneEvent(eventId)
     .subscribe(returnedData => {
-      this.updateOneCardArray = returnedData;
-      this.launchUpdateDialog(eventId, this.updateOneCardArray)
+      this.oneCardArray = returnedData;
+      this.launchUpdateDialog(eventId, this.oneCardArray)
     })
   }
 
-  launchUpdateDialog(eventId, updateOneCardArray){
+  launchUpdateDialog(eventId, oneCardArray){
     let dialogRef = this.dialog.open(EventModalComponent, {
       height: '40em',
       width: '40em',
       data: {
-        eventDate: updateOneCardArray.eventDate,
-        eventName: updateOneCardArray.eventName,
-        eventCity: updateOneCardArray.eventCity,
-        eventState: updateOneCardArray.eventState,
-        eventType: updateOneCardArray.eventType,
-        measurement: updateOneCardArray.measurement,
-        unit: updateOneCardArray.unit,
-        eventDistance: updateOneCardArray.eventDistance,
-        goalHours: updateOneCardArray.goalHours,
-        goalMinutes: updateOneCardArray.goalMinutes,
-        goalSeconds: updateOneCardArray.goalSeconds,
+        eventDate: oneCardArray.eventDate,
+        eventName: oneCardArray.eventName,
+        eventCity: oneCardArray.eventCity,
+        eventState: oneCardArray.eventState,
+        eventType: oneCardArray.eventType,
+        unit: oneCardArray.unit,
+        eventDistance: oneCardArray.eventDistance,
         update: true
       }
     })
@@ -72,7 +93,6 @@ export class EventsComponent implements OnInit {
           .subscribe(() => this.getMyEvents())
       }
     })
-
   }
 
   ngOnInit() {
@@ -96,11 +116,14 @@ export class EventsComponent implements OnInit {
     this.updateDialog(eventId)
   }
 
+  onCreatePlan(planId){
+    this.createPlanDialog(planId)
+  }
+
   onDelete(eventId) {
     this.dashBoardService.deleteEvent(eventId)
       .subscribe(() => this.getMyEvents())
   }
-
 
 }
 

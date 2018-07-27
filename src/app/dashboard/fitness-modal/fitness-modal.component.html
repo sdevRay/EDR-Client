@@ -14,12 +14,6 @@ Your Starting Stats!</h2>
       <mat-option value='Cycling'>Cycling</mat-option>
     </mat-select>
   </mat-form-field>
-  <mat-form-field appearance='outline'>
-    <mat-select matInput formControlName='measurement' placeholder="Type Of Training" required>
-      <mat-option value='Time' (click)="time()">Time</mat-option>
-      <mat-option value='Distance'(click)='distance()'>Distance</mat-option>
-    </mat-select>
-  </mat-form-field>
   <mat-form-field appearance ='outline'>
     <mat-select matInput formControlName='unit' placeholder="Unit of Measurement" required>
       <mat-option value='Miles'>Miles</mat-option>
@@ -28,12 +22,6 @@ Your Starting Stats!</h2>
   </mat-form-field>
   <mat-form-field appearance='outline'>
     <input matInput formControlName='currentDistance' placeholder="Your Starting Distance" required>
-  </mat-form-field>
-  <mat-form-field *ngIf='timeSelected' appearance='outline'>
-    <input matInput formControlName='currentHours' placeholder="Your Starting Hours" required><hr>
-    <input matInput formControlName='currentMinutes' placeholder="Your Starting Minutes" required><hr>
-    <input matInput formControlName='currentSeconds' placeholder="Your Starting Seconds" required><hr>
-  Current Time
   </mat-form-field>
   <br>
   <button mat-raised-button color='primary' type="submit" (click)="onSubmit()">

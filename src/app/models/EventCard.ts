@@ -4,11 +4,7 @@ export interface EventCard {
     eventCity: string,
     eventState: string,
     eventType: string,
-    measurement: string,
     unit: string,
     eventDistance: number,
-    goalHours: number,
-    goalMinutes: number,
-    goalSeconds: number,
     update?: boolean
 }

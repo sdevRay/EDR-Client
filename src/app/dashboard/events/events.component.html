@@ -25,7 +25,7 @@
       {{event.eventType}}
       <span> event</span>
     </mat-card-subtitle>
-    <button>Create Plan for This Event</button>
+    <button mat-raised-button (click)="onCreatePlan(event.id)">Create Plan for This Event</button>
     <div *ngIf='myEventsSelected'>
       <mat-card-actions>
         <button mat-raised-button color="primary" (click)="onUpdate(event.id)">Update</button>

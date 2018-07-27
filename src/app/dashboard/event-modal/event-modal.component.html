@@ -23,12 +23,6 @@
       <mat-option value='Cycling'>Cycling</mat-option>
     </mat-select>
   </mat-form-field>
-  <mat-form-field appearance='outline'>
-    <mat-select matInput formControlName='measurement' placeholder='What will we measure?' required>
-      <mat-option value='Time' (click)='time()'>Time</mat-option>
-      <mat-option value='Distance'(click)='distance()'>Distance</mat-option>
-    </mat-select>
-  </mat-form-field>
   <mat-form-field appearance ='outline'>
     <mat-select matInput formControlName='unit' placeholder="Unit of Measurement" required>
       <mat-option value='Miles'>Miles</mat-option>
@@ -37,12 +31,6 @@
   </mat-form-field>
   <mat-form-field appearance='outline'>
     <input matInput formControlName='eventDistance' placeholder="Event Total Distance" required>
-  </mat-form-field>
-  <mat-form-field appearance='outline' *ngIf='timeSelected'>
-    <input matInput formControlName='goalHours' placeholder="Your Goal Hours" required><hr>
-    <input matInput formControlName='goalMinutes' placeholder="Your Goal Minutes" required><hr>
-    <input matInput formControlName='goalSeconds' placeholder="Your Goal Seconds" required><hr>
-  Goal Times
   </mat-form-field>
   <br>
   <button mat-raised-button color='primary' type="submit" (click)='onSubmit()'>
