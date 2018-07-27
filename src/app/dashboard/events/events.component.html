@@ -26,6 +26,9 @@
     {{event.eventType}}<span> event</span>
   </mat-card-subtitle>
   <button>Create Plan for This Event</button>
-  <button *ngIf='myEventsSelected'>Delete</button>
+  <div *ngIf='myEventsSelected'>
+  <button  (click)="onDelete(event.id)">Delete</button>
+  <button (click)="onUpdate(event.id)">Update</button>
+  </div>
 </mat-card>
 </div>

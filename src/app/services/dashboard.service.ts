@@ -37,9 +37,22 @@ export class DashboardService {
     updateOneCard(statId){
         // console.log(statId)
     }
+
+    postNewEvent(newEvent) {
+        return this.http.post<any>(`${baseURL}/event/create`, newEvent)
+        .subscribe()
+    }
     
     deleteCard(statId){
         return this.http.delete(`${baseURL}/stat/delete/${statId}`)
+    }
+
+    deleteEvent(eventId) {
+        return this.http.delete(`${baseURL}/event/delete/${eventId}`)
+    }
+
+    updateEvent(eventId, updateEvent) {
+        return this.http.put<any>(`${baseURL}/event/update/${eventId}`, updateEvent)
     }
 
 }
