@@ -47,4 +47,12 @@ export class DashboardService {
         return this.http.delete(`${baseURL}/stat/delete/${statId}`)
     }
 
+    deleteEvent(eventId) {
+        return this.http.delete(`${baseURL}/event/delete/${eventId}`)
+    }
+
+    updateEvent(eventId, updateEvent) {
+        return this.http.put<any>(`${baseURL}/event/update/${eventId}`, updateEvent)
+    }
+
 }

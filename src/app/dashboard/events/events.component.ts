@@ -31,6 +31,9 @@ export class EventsComponent implements OnInit {
   }
   public events = [];
 
+
+
+
 ngOnInit(){
   this.getAllEvents()
 }
@@ -47,6 +50,13 @@ getMyEvents(){
     this.myEventsSelected = true;
   })
 }
+
+onDelete(eventId) {
+  this.dashBoardService.deleteEvent(eventId)
+    .subscribe(() => this.getMyEvents())
+}
+
+
 }
 
 
