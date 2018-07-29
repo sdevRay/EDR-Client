@@ -22,8 +22,8 @@ export class EventsComponent implements OnInit {
   openDialog(): void {
 
     let dialogRef = this.dialog.open(EventModalComponent, {
-      height: '40em',
-      width: '40em',
+      height: '36em',
+      width: '30em',
       data: {
         update: false
       }

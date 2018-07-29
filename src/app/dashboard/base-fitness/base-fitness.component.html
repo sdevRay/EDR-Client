@@ -3,11 +3,11 @@
         Current Fitness Picture
     </h3>
 
-    <mat-card mat-buton (click)="openDialog()">
+    <mat-card id="addCard" mat-button (click)="openDialog()">
         <p class="eventAdd">+</p>
         <mat-card-subtitle>Add a Snapshot of your current fitness</mat-card-subtitle>
     </mat-card>
-
+    <br>
     <mat-card class="fitnessCard" *ngFor="let stat of stats">
 
         <mat-card-title>{{stat.discipline | uppercase}} SNAPSHOT</mat-card-title>

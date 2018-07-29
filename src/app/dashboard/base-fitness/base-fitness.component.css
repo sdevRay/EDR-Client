@@ -1,6 +1,7 @@
 .title {
     position: relative;
     text-align: center;
+    margin-left: 2em;
 }
 h3 {
     font-size: 30px;
@@ -13,7 +14,8 @@ h3 {
 }
 mat-card{
     width: 100%;
-    background-color: lightblue;
+    background-color: rgb(75, 152, 185);
+    border-radius: 1em;
 }
 .fitnessCard{
     margin: 1em;
@@ -24,4 +26,10 @@ mat-card{
     position: absolute;
     top: 0em;
     left: 0em;
+}
+#addCard {
+    margin: 1em;
+    background-color: rgb(75, 152, 185);
+    border-radius: 1em;
+
 }

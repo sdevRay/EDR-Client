@@ -18,8 +18,8 @@ export class BaseFitnessComponent implements OnInit {
   openDialog(): void {
     
     let dialogRef = this.dialog.open(FitnessModalComponent, {
-      height: '40em',
-      width: '40em',
+      height: '25em',
+      width: '30em',
       data: {
         update: false
       }
@@ -43,8 +43,8 @@ export class BaseFitnessComponent implements OnInit {
   launchUpdateDialog(statId, updateOneCardArray){
 
     let dialogRef = this.dialog.open(FitnessModalComponent, {
-      height: '40em',
-      width: '40em',
+      height: '25em',
+      width: '30em',
       data: {
         date: updateOneCardArray.date,
         discipline: updateOneCardArray.discipline,

@@ -4,14 +4,15 @@
 
 mat-toolbar {
     font-size: 24px;
-    background-color: black;
+    background: rgb(22,43,175);
     color: white;
-    text-shadow: 1px 1px red;
-    position: fixed
+    text-shadow: 1px 1px rgb(0, 184, 74);
+    position: fixed;
+    z-index: 5;
 }
 
 i {
     font-size: 40px;
-    color:red;
+    color:rgb(0, 184, 74);
     text-shadow: 1px 1px white;
 }
