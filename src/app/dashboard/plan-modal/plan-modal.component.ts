@@ -44,16 +44,10 @@ export class PlanModalComponent implements OnInit {
           console.log ( 'stat = miles,  event = KM')
         } 
 
-
         let deltaDate = Number(new Date(this.eventCard.eventDate)) - Number(new Date(this.statCard.date))
         let daysBetween = deltaDate / (1000*60*60*24)
         let intervals = Math.round(daysBetween / 14)
         let distPerInt = Math.round((deltaDist / intervals) * 10)/10
-        
-        
-        
-        
-        
         
         for (let x = 1; x < intervals ; x++) {
           let distInt = this.statCard.currentDistance
