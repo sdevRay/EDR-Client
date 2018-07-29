@@ -3,19 +3,21 @@
     Upcoming Events
   </h3>
 
-  <mat-card matButton (click)='openDialog()'>
+  <mat-card mat-button (click)='openDialog()'>
     <p class="eventAdd">+</p>
     <mat-card-subtitle>Click here to add new Event or Personal Goal</mat-card-subtitle>
   </mat-card>
   <br>
-  <button (click)='getAllEvents()'>See All Events</button>
-  <button (click)='getMyEvents()'>See Just My Events</button>
+  <mat-card-actions class="toggles">
+    <button mat-raised-button id="toggles" (click)='getAllEvents()'>See All Events</button>
+    <button mat-raised-button id="toggles" (click)='getMyEvents()'>See Just My Events</button>
+  </mat-card-actions>
   <mat-card *ngFor="let event of events">
     <mat-card-title>
       {{event.eventName}}
     </mat-card-title>
     <mat-card-subtitle>
-      <span>{{event.eventCity}}</span>,
+      <span>{{event.eventCity}}</span>
       <span>{{event.eventState}}</span>
     </mat-card-subtitle>
     <mat-card-subtitle>
@@ -23,13 +25,15 @@
     </mat-card-subtitle>
     <mat-card-subtitle>
       {{event.eventType}}
-      <span> event</span>
+      <span>event</span>
     </mat-card-subtitle>
-    <button mat-raised-button (click)="onCreatePlan(event.id)">Create Plan for This Event</button>
+    <mat-card-actions>
+      <button mat-raised-button (click)="onCreatePlan(event.id)" id="createPlan">Create Plan for This Event</button>
+    </mat-card-actions>
     <div *ngIf='myEventsSelected'>
       <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="onUpdate(event.id)">Update</button>
-        <button mat-raised-button color="warn" (click)="onDelete(event.id)">Delete</button>
+        <button mat-raised-button color="primary" (click)="onUpdate(event.id)" id="Update">Update</button>
+        <button mat-raised-button color="warn" (click)="onDelete(event.id)" id="delete">Delete</button>
       </mat-card-actions>
     </div>
   </mat-card>

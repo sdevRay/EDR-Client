@@ -1,7 +1,7 @@
 .footer{
     height: 4em;
     width: 100%;
-    background-color: black;
+    background: rgb(22, 43, 175);
     position: fixed;
     bottom: 0px;
 
@@ -12,10 +12,10 @@
     color: white;
     position: relative;
     bottom: 20%;
-    text-shadow: 1px 1px red;
+    text-shadow: 1px 1px rgb(0, 184, 74);
 }
 .footer span{
     font-size: 40px;
-    color: red;
+    color: rgb(0, 184, 74);
     text-shadow: 1px 1px white;
 }

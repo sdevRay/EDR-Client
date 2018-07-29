@@ -2,8 +2,14 @@
     background-size: cover;
     height: 15em;
     width: 100%;
+    margin-top: 4em
+}
+
+mat-grid-list {
+    height: 30em;
 }
 
 body {
-    background-color: lightblue;
+    background-color: rgb(7, 115, 161);
+    height: 100%;
 }
