@@ -1,19 +1,70 @@
-<mat-grid-list style="border: 1px solid black" cols="4" rowHeight="20em">
+<div class='planModal'>
+
+<h2>Your benchmarks for success at the {{eventCard.eventName}} on {{eventCard.eventDate | date}}</h2>
+
+<hr>
+
+
+<mat-grid-list cols="4" rowHeight="8em">
 
 
   <mat-grid-tile [colspan]="2" [rowspan]="1">
-    <ul>
-      <li>Event Card</li>
-      <li>{{eventCard.eventDate}}</li>
+    <ul class='left'>
+      <li class='liHead'><b>Starting Point</b></li>
+      <hr>
+      <li>{{statCard.date | date}}</li>
+      <li>{{statCard.discipline}} {{statCard.currentDistance}} {{statCard.unit}}</li>
     </ul>
   </mat-grid-tile>
 
   <mat-grid-tile [colspan]="2" [rowspan]="1">
-    <ul>
-      <li>Stat Card</li>
-      <li>{{statCard.date}}</li>
+    <ul class='right'>
+      <li class='liHead'><b>Event Targetted </b></li>
+      <hr>
+      <li>{{eventCard.eventName}}</li>
+      <li>{{eventCard.eventCity}}, {{eventCard.eventState}}</li>
+      <li>{{eventCard.eventDate | date}}</li>
+      <li>{{eventCard.eventType}} {{eventCard.eventDistance}} {{eventCard.unit}}</li>
     </ul>
   </mat-grid-tile>
-
-
+  
 </mat-grid-list>
+<hr>
+
+<mat-grid-list cols="6" rowHeight="20em">
+  <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
+  <mat-grid-tile [colspan]="2" [rowspan]="1">
+  <table style="width:100%">
+      <tr>
+        <th>By this date</th>
+      </tr>
+      <tr *ngFor='let date of dateArray'>
+        <td >{{date | date}}</td>
+      </tr>
+      <td>Event Day!</td>
+    </table>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <table style="width:100%">
+            <tr>
+              <th>Be able to Go</th>
+            </tr>
+            <tr *ngFor='let dist of distArray'>
+              <td >{{dist}} {{statCard.unit}}</td>
+            </tr>
+            <td>Go get 'em!!</td>
+          </table>
+          </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
+ </mat-grid-list>
+  
+  
+
+
+
+
+
+
+
+
+</div>

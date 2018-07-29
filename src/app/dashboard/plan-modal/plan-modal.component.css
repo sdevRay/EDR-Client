@@ -1,0 +1,30 @@
+h2 {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+  }
+
+  li {
+      font-size: 12px;
+  }
+
+  .liHead{
+      font-size: 20px;
+  }
+
+  .left{
+      position: relative;
+      top: -1em;
+      left: -5em;
+  }
+
+  .right{
+      position: relative;
+      top: 0em;
+      right: -3em;
+  }
+  td{
+      text-align: center;
+  }

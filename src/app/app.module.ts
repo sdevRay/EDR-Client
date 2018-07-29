@@ -15,6 +15,7 @@ import { BaseFitnessComponent } from './dashboard/base-fitness/base-fitness.comp
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AboutComponent } from './landing-page/about/about.component';
 
+import {MatTableModule} from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule } from "@angular/material" 
 import {MatCardModule} from '@angular/material/card';
@@ -66,7 +67,8 @@ import { PlanModalComponent } from './dashboard/plan-modal/plan-modal.component'
     ReactiveFormsModule,
     HttpClientModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule
   ],
   entryComponents: [
     FitnessModalComponent,
