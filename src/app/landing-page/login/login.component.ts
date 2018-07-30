@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.signupService.login(this.loginForm.value)
-    // console.log(this.loginForm.value)
   }
 
 }

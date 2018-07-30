@@ -1,35 +1,48 @@
-<h2>
-<span *ngIf="!data.update">Enter</span>
-<span *ngIf="data.update">Update</span>
-Your Starting Stats!</h2>
-
-<form [formGroup]='baseFitnessForm'>
-  <mat-form-field appearance='outline'>
-    <input matInput formControlName='date' placeholder="Your Starting Date" type='date' required> Your Starting Date
-  </mat-form-field>
-  <mat-form-field appearance='outline'>
-    <mat-select formControlName='discipline' placeholder="Type of workout" required>
-      <mat-option value='Running'>Running</mat-option>
-      <mat-option value='Swimming'>Swimming</mat-option>
-      <mat-option value='Cycling'>Cycling</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field appearance ='outline'>
-    <mat-select matInput formControlName='unit' placeholder="Unit of Measurement" required>
-      <mat-option value='Miles'>Miles</mat-option>
-      <mat-option value='Kilometers'>Kilometers</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field appearance='outline'>
-    <input matInput formControlName='currentDistance' placeholder="Your Starting Distance" required>
-  </mat-form-field>
-  <br>
-  <mat-card-actions>
-  <button mat-raised-button color='primary' type="submit" (click)="onSubmit()">
-    <span *ngIf="!data.update">Create</span>
-    <span *ngIf="data.update">Update</span>
-  </button>
+<div *ngIf="!data.update && data.isRunning && data.isCycling && data.isSwimming">
+  <h2>Current Fitness Snapshot's Full</h2>
   <button mat-raised-button id="close" color='warn' (click)='close()'>Cancel</button>
-</mat-card-actions>
+</div>
 
-</form>
+<div *ngIf="data.update || !data.isRunning || !data.isCycling || !data.isSwimming">
+  <h2>
+    <span *ngIf="!data.update">Enter</span>
+    <span *ngIf="data.update">Update</span>
+    Your Starting Stats!</h2>
+  <form [formGroup]='baseFitnessForm'>
+    <mat-form-field appearance='outline'>
+      <input matInput formControlName='date' placeholder="Your Starting Date" type='date' required> Your Starting Date
+    </mat-form-field>
+    <mat-form-field appearance='outline'>
+
+      <mat-select *ngIf="data.update" formControlName='discipline' placeholder={{this.data.discipline}} required>
+        <mat-option *ngIf="!data.isRunning" value='Running'>Running</mat-option>
+        <mat-option *ngIf="!data.isSwimming" value='Swimming'>Swimming</mat-option>
+        <mat-option *ngIf="!data.isCycling" value='Cycling'>Cycling</mat-option>
+      </mat-select>
+
+      <mat-select *ngIf="!data.update" formControlName='discipline' placeholder="Type of workout" required>
+        <mat-option *ngIf="!data.isRunning" value='Running'>Running</mat-option>
+        <mat-option *ngIf="!data.isSwimming" value='Swimming'>Swimming</mat-option>
+        <mat-option *ngIf="!data.isCycling" value='Cycling'>Cycling</mat-option>
+      </mat-select>
+
+    </mat-form-field>
+    <mat-form-field appearance='outline'>
+      <mat-select matInput formControlName='unit' placeholder="Unit of Measurement" required>
+        <mat-option value='Miles'>Miles</mat-option>
+        <mat-option value='Kilometers'>Kilometers</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance='outline'>
+      <input matInput formControlName='currentDistance' placeholder="Your Starting Distance" required>
+    </mat-form-field>
+    <br>
+    <mat-card-actions>
+      <button mat-raised-button color='primary' type="submit" (click)="onSubmit()">
+        <span *ngIf="!data.update">Create</span>
+        <span *ngIf="data.update">Update</span>
+      </button>
+      <button mat-raised-button id="close" color='warn' (click)='close()'>Cancel</button>
+    </mat-card-actions>
+  </form>
+</div>
