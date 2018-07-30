@@ -6,7 +6,7 @@ import { StatCard } from '../models/StatCard';
 import { Observable } from '../../../node_modules/rxjs';
 import { EventCard } from "../models/EventCard";
 
-const baseURL: string = "http://localhost:3000";
+import { baseURL } from "../../environments/environment.prod"
 
 @Injectable()
 export class DashboardService {

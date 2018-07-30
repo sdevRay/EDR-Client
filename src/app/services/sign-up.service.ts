@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-const baseURL: string = "http://localhost:3000";
+import { baseURL } from "../../environments/environment.prod"
+
 
 @Injectable()
 export class SignupService {
