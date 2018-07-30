@@ -98,8 +98,7 @@ export class BaseFitnessComponent implements OnInit {
         } 
         if(data.discipline == "Swimming"){
           this.isSwimming = true;
-        } 
-
+        }
       }
       
       this.stats = returnedData
