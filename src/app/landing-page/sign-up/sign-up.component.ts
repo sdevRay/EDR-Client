@@ -17,7 +17,7 @@ import {
 
 export class SignUpComponent implements OnInit {
 
-  private signupForm: FormGroup;
+  public signupForm: FormGroup;
 
 
   constructor(private form: FormBuilder, private signupService: SignupService) {

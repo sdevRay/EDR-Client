@@ -10,7 +10,7 @@ import { EventCard } from '../../models/EventCard';
 })
 export class EventModalComponent implements OnInit {
 
-  private eventForm: FormGroup
+  public eventForm: FormGroup
 
   constructor(private form: FormBuilder, public dialogRef: MatDialogRef<EventModalComponent>, @Inject(MAT_DIALOG_DATA) public data: EventCard) { 
     

@@ -15,7 +15,7 @@ import {
 })
 export class LoginComponent implements OnInit {
 
-  private loginForm: FormGroup;
+  public loginForm: FormGroup;
 
   constructor(private form: FormBuilder, private signupService: SignupService) { 
     this.createForm();

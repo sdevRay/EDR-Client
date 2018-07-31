@@ -11,7 +11,7 @@ import { StatCard } from '../../models/StatCard';
 
 export class FitnessModalComponent implements OnInit {
 
-  private baseFitnessForm: FormGroup;
+  public baseFitnessForm: FormGroup;
 
   constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<FitnessModalComponent>, @Inject(MAT_DIALOG_DATA) public data: StatCard) {
     if(data.update){
