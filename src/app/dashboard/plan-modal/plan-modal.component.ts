@@ -52,7 +52,7 @@ export class PlanModalComponent implements OnInit {
         for (let x = 1; x < intervals ; x++) {
           let distInt = this.statCard.currentDistance
           distInt = Math.round((x*distPerInt + distInt) * 10)/10
-          this.distArray.push(distInt)
+          this.distArray.push(parseInt(distInt))
           let currentDate = new Date(this.statCard.date)
           currentDate.setDate(currentDate.getDate() + 14*x)
           this.dateArray.push(currentDate)
