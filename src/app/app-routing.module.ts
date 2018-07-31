@@ -10,7 +10,7 @@ import { LoginComponent } from './landing-page/login/login.component';
 import { DashGuard } from "./guards/dash.guards"
 
 const routes: Routes = [
-    { path: '/', redirectTo: 'landingpage/login', pathMatch: 'full' },
+    { path: '', redirectTo: '/landingpage/login', pathMatch: 'full' },
     {
         path: 'landingpage', component: LandingPageComponent,
         children: [
