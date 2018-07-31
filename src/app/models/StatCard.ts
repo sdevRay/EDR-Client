@@ -3,5 +3,8 @@ export interface StatCard {
     discipline:  string,
     unit: string,
     currentDistance: number,
-    update?: boolean
+    update?: boolean,
+    isRunning: boolean,
+    isSwimming: boolean,
+    isCycling: boolean
 }
