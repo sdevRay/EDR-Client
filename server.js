@@ -6,7 +6,7 @@ const app = express();
 app.use(express.static(__dirname + '/dist/EDRClient'));
 
 // Send all requests to index.html
-app.get('/*', function(req, res) {
+app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname + '/dist/EDRClient/index.html'));
 });
 
