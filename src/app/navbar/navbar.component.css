@@ -9,6 +9,8 @@ mat-toolbar {
     text-shadow: 1px 1px rgb(0, 184, 74);
     position: fixed;
     z-index: 5;
+    top: 0;
+    left: 0;
 }
 
 i {

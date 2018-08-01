@@ -1,8 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { DashboardService } from '../../services/dashboard.service';
-import { MAT_DIALOG_DATA } from '../../../../node_modules/@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '../../../../node_modules/@angular/material';
 import { EventCard } from '../../models/EventCard';
-import { StatCard } from '../../models/StatCard';
 
 @Component({
   selector: 'app-plan-modal',
@@ -11,7 +10,7 @@ import { StatCard } from '../../models/StatCard';
 })
 export class PlanModalComponent implements OnInit {
   
-  constructor(private dashboardService: DashboardService, @Inject(MAT_DIALOG_DATA) public planCardArray: EventCard) { }
+  constructor(public dialogRef: MatDialogRef<PlanModalComponent>, private dashboardService: DashboardService, @Inject(MAT_DIALOG_DATA) public planCardArray: EventCard) { }
   
   public statCard;
   public eventCard;
@@ -22,6 +21,11 @@ export class PlanModalComponent implements OnInit {
     ngOnInit() {
       this.getCards();
   }
+
+  close():void {
+    this.dialogRef.close()
+  }
+
   getCards(): void {
     this.dashboardService.getAllCards().subscribe(returnedData => {
       this.calculateData(this.planCardArray, returnedData)

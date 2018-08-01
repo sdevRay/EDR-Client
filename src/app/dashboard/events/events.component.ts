@@ -48,8 +48,8 @@ export class EventsComponent implements OnInit {
 
   launchPlanDialog(planCardArray){
     let dialogRef = this.dialog.open(PlanModalComponent, {
-      height: '40em',
-      width: '40em',
+      height: 'fit',
+      width: 'fit',
       data: {
         eventDate: planCardArray.eventDate,
         eventName: planCardArray.eventName,
