@@ -102,6 +102,7 @@ export class BaseFitnessComponent implements OnInit {
       }
       
       this.stats = returnedData
+       
     });
 
   }

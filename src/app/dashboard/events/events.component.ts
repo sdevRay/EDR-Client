@@ -17,7 +17,7 @@ export class EventsComponent implements OnInit {
 
   constructor(private dialog: MatDialog, private dashBoardService: DashboardService) {
   }
-  
+
 
   openDialog(): void {
 
@@ -37,16 +37,16 @@ export class EventsComponent implements OnInit {
     })
   }
 
-  createPlanDialog(planId):void {
+  createPlanDialog(planId): void {
     this.dashBoardService.getOneEvent(planId)
-    .subscribe(returnedData => {
-      this.oneCardArray = returnedData;
+      .subscribe(returnedData => {
+        this.oneCardArray = returnedData;
 
-      this.launchPlanDialog(this.oneCardArray)
-    })
+        this.launchPlanDialog(this.oneCardArray)
+      })
   }
 
-  launchPlanDialog(planCardArray){
+  launchPlanDialog(planCardArray) {
     let dialogRef = this.dialog.open(PlanModalComponent, {
       height: 'fit',
       width: 'fit',
@@ -65,13 +65,13 @@ export class EventsComponent implements OnInit {
 
   updateDialog(eventId): void {
     this.dashBoardService.getOneEvent(eventId)
-    .subscribe(returnedData => {
-      this.oneCardArray = returnedData;
-      this.launchUpdateDialog(eventId, this.oneCardArray)
-    })
+      .subscribe(returnedData => {
+        this.oneCardArray = returnedData;
+        this.launchUpdateDialog(eventId, this.oneCardArray)
+      })
   }
 
-  launchUpdateDialog(eventId, oneCardArray){
+  launchUpdateDialog(eventId, oneCardArray) {
     let dialogRef = this.dialog.open(EventModalComponent, {
       height: '40em',
       width: '40em',
@@ -102,6 +102,7 @@ export class EventsComponent implements OnInit {
     this.dashBoardService.getAllEvents().subscribe(returnedData => {
       this.events = returnedData
       this.myEventsSelected = false;
+      this.sortArray()
     })
   }
 
@@ -112,11 +113,39 @@ export class EventsComponent implements OnInit {
     })
   }
 
+  sortArray() {
+
+    
+    let sortedArray: any[];
+    
+        for (let i = 0; i < this.events.length; i++) {
+          this.events[i].eventDate = Number(new Date(this.events[i].eventDate))
+        }
+
+    // sortedArray = this.orderPipe.transform(this.events, "eventDate");
+    console.log(sortedArray)
+
+
+    // sortedAry.push(Number(new Date(this.events[i].eventDate))) 
+    // sortedAry.sort((a, b) => a - b);
+
+
+    // for (let i = 0; i < this.events.length - 1; i++) {
+      // if (this.events[i].eventDate > this.events[i++].eventDate) {
+      //   sortedAry = this.events[i]
+      // } else ()
+      // console.log(this.events)
+    }
+
+
+  
+
+
   onUpdate(eventId) {
     this.updateDialog(eventId)
   }
 
-  onCreatePlan(planId){
+  onCreatePlan(planId) {
     this.createPlanDialog(planId)
   }
 

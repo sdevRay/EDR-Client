@@ -32,6 +32,7 @@ import { DashboardService } from "./services/dashboard.service"
 import { TokenInterceptorService } from "./interceptors/token.interceptor.service";
 import { PlanModalComponent } from './dashboard/plan-modal/plan-modal.component' 
 
+import { OrderModule } from "ngx-order-pipe"
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { PlanModalComponent } from './dashboard/plan-modal/plan-modal.component'
     HttpClientModule,
     MatDialogModule,
     MatSelectModule,
-    MatTableModule
+    MatTableModule,
+    OrderModule
   ],
   entryComponents: [
     FitnessModalComponent,
